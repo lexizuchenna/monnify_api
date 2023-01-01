@@ -24,16 +24,16 @@ module.exports = {
       ) {
         const transactionObj = {
           accountReference: data.eventData.product.reference,
-          customerEmail: data.customer.email,
-          transactionReference: data.transactionReference,
-          paymentReference: data.paymentReference,
-          paidOn: new Date(data.paidOn),
-          paymentDescription: data.paymentDescription,
-          paymentMethod: data.paymentMethod,
-          paymentSourceInformation: data.paymentSourceInformation[0],
-          destinationAccountInformation: data.destinationAccountInformation,
-          settlementAmount: data.settlementAmount,
-          amountPaid: data.amountPaid,
+          customerEmail: data.eventData.customer.email,
+          transactionReference: data.eventData.transactionReference,
+          paymentReference: data.eventData.paymentReference,
+          paidOn: new Date(data.eventData.paidOn),
+          paymentDescription: data.eventData.paymentDescription,
+          paymentMethod: data.eventData.paymentMethod,
+          paymentSourceInformation: data.eventData.paymentSourceInformation[0],
+          destinationAccountInformation: data.eventData.destinationAccountInformation,
+          settlementAmount: data.eventData.settlementAmount,
+          amountPaid: data.eventData.amountPaid,
         };
 
         const newTransactionData = await Transaction.create(transactionObj);
@@ -56,12 +56,12 @@ module.exports = {
           { new: true }
         );
 
-        // sendMail(
-        //   "Automated Message",
-        //   `${data?.eventType}`,
-        //   "lextechspec@gmail.com",
-        //   email(data?.eventType, data?.customer?.name, data?.settlementAmount)
-        // );
+        sendMail(
+          "Automated Message",
+          `${data?.eventType}`,
+          "lextechspec@gmail.com",
+          email(data?.eventType, data?.eventData.customer?.name, data?.settlementAmount)
+        );
 
         console.log(updatedAcc)
         res.status(201).json(updatedAcc);
