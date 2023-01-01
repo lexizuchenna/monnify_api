@@ -1,5 +1,7 @@
-const router = require('express').Router()
+const router = require("express").Router();
 
-router.route('/receive-transaction-data').post()
+const { receiveTransactionData } = require("../controllers/webhooks");
 
-module.exports = router
+router.route("/receive-transaction-data").post(receiveTransactionData);
+
+module.exports = router;
