@@ -16,7 +16,6 @@ module.exports = {
     // console.log(email(data?.eventType, data?.customer?.name, data?.settlementAmount))
 
     try {
-      
       if (
         headers[2] === "35.242.133.146" &&
         data &&
@@ -31,7 +30,8 @@ module.exports = {
           paymentDescription: data.eventData.paymentDescription,
           paymentMethod: data.eventData.paymentMethod,
           paymentSourceInformation: data.eventData.paymentSourceInformation[0],
-          destinationAccountInformation: data.eventData.destinationAccountInformation,
+          destinationAccountInformation:
+            data.eventData.destinationAccountInformation,
           settlementAmount: data.eventData.settlementAmount,
           amountPaid: data.eventData.amountPaid,
         };
@@ -45,7 +45,9 @@ module.exports = {
         });
 
         const accontObj = {
-          amount: account.amount + transactionObj.settlementAmount,
+          amount:
+            parseFloat(account.amount) +
+            parseFloat(transactionObj.settlementAmount),
         };
 
         const updatedAcc = await Account.findOneAndUpdate(
@@ -60,10 +62,14 @@ module.exports = {
           "Automated Message",
           `${data?.eventType}`,
           "lextechspec@gmail.com",
-          email(data?.eventType, data?.eventData.customer?.name, data?.settlementAmount)
+          email(
+            data?.eventType,
+            data?.eventData.customer?.name,
+            data?.settlementAmount
+          )
         );
 
-        console.log(updatedAcc)
+        console.log(updatedAcc);
         res.status(201).json(updatedAcc);
       }
     } catch (error) {
