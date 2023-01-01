@@ -13,7 +13,6 @@ module.exports = {
   receiveTransactionData: async (req, res) => {
     const data = req.body;
     const headers = Object.values(req.headers);
-    // console.log(email(data?.eventType, data?.customer?.name, data?.settlementAmount))
 
     try {
       if (
@@ -58,7 +57,7 @@ module.exports = {
           { new: true }
         );
 
-        const mail = sendMail(
+        const mail = await sendMail(
           "Automated Message",
           `${data?.eventType}`,
           "lextechspec@gmail.com",
