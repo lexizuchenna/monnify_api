@@ -11,10 +11,13 @@ const sendMail = require("../middlewares/nodemailer");
 
 module.exports = {
   receiveTransactionData: async (req, res) => {
-    const data = req.body;
+    const data = req.payload;
+    const headers = Object.values(req.headers);
+    console.log(req.payload)
+    console.log(headers[2])
 
     try {
-      const headers = Object.values(req.headers);
+      
       if (
         headers[2] === "35.242.133.146" &&
         data &&
