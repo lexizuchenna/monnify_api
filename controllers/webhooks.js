@@ -13,8 +13,7 @@ module.exports = {
   receiveTransactionData: async (req, res) => {
     const data = req.body;
     const headers = Object.values(req.headers);
-    console.log(data)
-    console.log(headers[2])
+    // console.log(email(data?.eventType, data?.customer?.name, data?.settlementAmount))
 
     try {
       
@@ -57,13 +56,14 @@ module.exports = {
           { new: true }
         );
 
-        sendMail(
-          "Automated Message",
-          `${data?.eventType}`,
-          "lextechspec@gmail.com",
-          email(data?.eventType, data?.customer?.name, data?.settlementAmount)
-        );
+        // sendMail(
+        //   "Automated Message",
+        //   `${data?.eventType}`,
+        //   "lextechspec@gmail.com",
+        //   email(data?.eventType, data?.customer?.name, data?.settlementAmount)
+        // );
 
+        console.log(updatedAcc)
         res.status(201).json(updatedAcc);
       }
     } catch (error) {
