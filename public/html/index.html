@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API TEST</title>
+  </head>
+  <body>
+    <h1>Hello Api</h1>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      // console.log(`Basic ${btoa(`MK_TEST_PFVMLEJYBL:LVWSRBP2VDU74LBRH2K8H9WHBL4NP88R`)}`)
+      const body = JSON.stringify({
+        accountReference: "334rkkke",
+        accountName: "name",
+        currencyCode: "NGN",
+        contractCode: 1314556065,
+        customerEmail: "email@email.com",
+        customerName: "name",
+        getAllAvailableBanks: true,
+      });
+
+    //   const account = axios
+    //     .post(
+    //       `https://sandbox.monnify.com/api/v2/bank-transfer/reserved-accounts`,
+    //       {
+    //         body: body,
+    //       },
+    //       {
+    //         headers: {
+    //           Authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibW9ubmlmeS12YWx1ZS1hZGRlZC1zZXJ2aWNlIiwibW9ubmlmeS1wYXltZW50LWVuZ2luZSIsIm1vbm5pZnktZGlzYnVyc2VtZW50LXNlcnZpY2UiLCJtb25uaWZ5LW9mZmxpbmUtcGF5bWVudC1zZXJ2aWNlIl0sInNjb3BlIjpbInByb2ZpbGUiXSwiZXhwIjoxNjcyMzUwMDM1LCJhdXRob3JpdGllcyI6WyJNUEVfTUFOQUdFX0xJTUlUX1BST0ZJTEUiLCJNUEVfVVBEQVRFX1JFU0VSVkVEX0FDQ09VTlQiLCJNUEVfSU5JVElBTElaRV9QQVlNRU5UIiwiTVBFX1JFU0VSVkVfQUNDT1VOVCIsIk1QRV9DQU5fUkVUUklFVkVfVFJBTlNBQ1RJT04iLCJNUEVfUkVUUklFVkVfUkVTRVJWRURfQUNDT1VOVCIsIk1QRV9ERUxFVEVfUkVTRVJWRURfQUNDT1VOVCIsIk1QRV9SRVRSSUVWRV9SRVNFUlZFRF9BQ0NPVU5UX1RSQU5TQUNUSU9OUyJdLCJqdGkiOiJmZjcyNTJmMi05MTc2LTQyMmEtOGUzMy0zNzU2NmRkYmUwNGQiLCJjbGllbnRfaWQiOiJNS19URVNUX1BGVk1MRUpZQkwifQ.F_-61mB7Km3Bq5b_bciBKe42GAwcd5YqnQg_8yehGefBzeD809MqXwmsitMdJ7g5DYgZsP3_0oHaL47QFR3A2d_QTh945osRl4YPHp9Kde8as4Fh-_ZZHbRlT5lj7sfVsYX4fSnM7nkl9eUHM7es898cMQ5PebxLJIQ6NTRG7IAXWFM4lQXQQQv5iU3BqB41H0_nAbvLZLJiXoz7vDuCWUilF6HkWtm2TSRbpYPKozztuqXe8kuuXO9r5LyULWPkXPS9_rgCm4iXVXA8RETp4PecZsCqNX0hEeIf_3_pu1kFJUTwgukWF9xdf-0EMuApxc4YAm28cFXznhvuaR51MA`,
+    //         },
+    //       }
+    //     )
+    //     .then((result) => {
+    //       console.log(result);
+    //     });
+
+      var requestOptions = {
+        method: "POST",
+        body,
+        headers: {
+          Authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibW9ubmlmeS12YWx1ZS1hZGRlZC1zZXJ2aWNlIiwibW9ubmlmeS1wYXltZW50LWVuZ2luZSIsIm1vbm5pZnktZGlzYnVyc2VtZW50LXNlcnZpY2UiLCJtb25uaWZ5LW9mZmxpbmUtcGF5bWVudC1zZXJ2aWNlIl0sInNjb3BlIjpbInByb2ZpbGUiXSwiZXhwIjoxNjcyMzUwMDM1LCJhdXRob3JpdGllcyI6WyJNUEVfTUFOQUdFX0xJTUlUX1BST0ZJTEUiLCJNUEVfVVBEQVRFX1JFU0VSVkVEX0FDQ09VTlQiLCJNUEVfSU5JVElBTElaRV9QQVlNRU5UIiwiTVBFX1JFU0VSVkVfQUNDT1VOVCIsIk1QRV9DQU5fUkVUUklFVkVfVFJBTlNBQ1RJT04iLCJNUEVfUkVUUklFVkVfUkVTRVJWRURfQUNDT1VOVCIsIk1QRV9ERUxFVEVfUkVTRVJWRURfQUNDT1VOVCIsIk1QRV9SRVRSSUVWRV9SRVNFUlZFRF9BQ0NPVU5UX1RSQU5TQUNUSU9OUyJdLCJqdGkiOiJmZjcyNTJmMi05MTc2LTQyMmEtOGUzMy0zNzU2NmRkYmUwNGQiLCJjbGllbnRfaWQiOiJNS19URVNUX1BGVk1MRUpZQkwifQ.F_-61mB7Km3Bq5b_bciBKe42GAwcd5YqnQg_8yehGefBzeD809MqXwmsitMdJ7g5DYgZsP3_0oHaL47QFR3A2d_QTh945osRl4YPHp9Kde8as4Fh-_ZZHbRlT5lj7sfVsYX4fSnM7nkl9eUHM7es898cMQ5PebxLJIQ6NTRG7IAXWFM4lQXQQQv5iU3BqB41H0_nAbvLZLJiXoz7vDuCWUilF6HkWtm2TSRbpYPKozztuqXe8kuuXO9r5LyULWPkXPS9_rgCm4iXVXA8RETp4PecZsCqNX0hEeIf_3_pu1kFJUTwgukWF9xdf-0EMuApxc4YAm28cFXznhvuaR51MA`,
+          Accept: '*/*',
+          "Content-Type": "application/json"
+        },
+      };
+
+      fetch(`https://sandbox.monnify.com/api/v2/bank-transfer/reserved-accounts`, requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.log("error", error));
+    </script>
+  </body>
+</html>
