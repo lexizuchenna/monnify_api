@@ -58,18 +58,18 @@ module.exports = {
           { new: true }
         );
 
-        sendMail(
+        const mail = sendMail(
           "Automated Message",
           `${data?.eventType}`,
           "lextechspec@gmail.com",
           email(
             data?.eventType,
             data?.eventData.customer?.name,
-            data?.settlementAmount
+            data?.eventData.settlementAmount
           )
         );
 
-        console.log(updatedAcc);
+        console.log(mail);
         res.status(201).json(updatedAcc);
       }
     } catch (error) {
