@@ -1,5 +1,5 @@
 const email = (title, user, amount) => {
-  `<html>
+  return `<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -310,4 +310,4 @@ const email = (title, user, amount) => {
 </html>`;
 };
 
-module.exports = email
+module.exports = email;

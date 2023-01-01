@@ -11,9 +11,9 @@ const sendMail = require("../middlewares/nodemailer");
 
 module.exports = {
   receiveTransactionData: async (req, res) => {
-    const data = req.payload;
+    const data = req.body;
     const headers = Object.values(req.headers);
-    console.log(req.payload)
+    console.log(data)
     console.log(headers[2])
 
     try {
